@@ -1,0 +1,2 @@
+# node_modules is always ignored, as are folders starting with a dot
+dist/*

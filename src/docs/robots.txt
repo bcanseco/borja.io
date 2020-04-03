@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://full.stack.dev/sitemap.xml
+Host: https://full.stack.dev

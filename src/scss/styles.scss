@@ -1,0 +1,50 @@
+@import '../../node_modules/skeleton-css/css/normalize.css';
+@import '../../node_modules/skeleton-css/css/skeleton.css';
+
+$padding: 2rem;
+$margin-content: 21%;
+$margin-links: 2px;
+$accent: gainsboro;
+
+::selection {
+  background-color: $accent;
+}
+
+header {
+  margin-top: $margin-content;
+  text-align: center;
+
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+.details {
+  padding-top: $padding;
+  border-top: thin solid $accent;
+}
+
+.links {
+  padding-top: $padding;
+  margin-bottom: $margin-content;
+  text-align: center;
+
+  a:first-of-type {
+    margin-right: $margin-links;
+  }
+
+  a:last-of-type {
+    margin-left: $margin-links;
+  }
+}
+
+.no-select {
+  user-select: none;
+}
+
+canvas {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: -10;
+}
