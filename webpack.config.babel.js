@@ -127,6 +127,7 @@ export default {
       'form-action': '\'none\'',
       'frame-ancestors': '\'none\'',
       'object-src': '\'none\'',
+      'manifest-src': '\'self\'',
       'prefetch-src': '\'self\'',
       'connect-src': '\'self\'',
       'img-src': '\'self\'',
