@@ -142,18 +142,18 @@ export default {
           }`
         )).join('\n');
 
-        const mainConfig = fs.readFileSync(resolve(sourceDir, 'templates', 'nginx', 'main.conf'), 'utf8')
-          .replace('# {{WEBPACK_REDIRECTS}}', redirectsString);
-
         const headersConfig = fs.readFileSync(resolve(sourceDir, 'templates', 'nginx', 'headers.conf'), 'utf8')
           .replace('# {{WEBPACK_CSP_HEADER}}', `add_header Content-Security-Policy "${policy}" always;`);
+
+        const mainConfig = fs.readFileSync(resolve(sourceDir, 'templates', 'nginx', 'main.conf'), 'utf8')
+          .replace('# {{WEBPACK_REDIRECTS}}', redirectsString)
+          .replace(/# {{WEBPACK_HEADERS}}/g, headersConfig);
 
         if (!fs.existsSync(buildDir)) {
           fs.mkdirSync(buildDir);
         }
 
-        fs.writeFileSync(resolve(buildDir, 'main.conf'), mainConfig);
-        fs.writeFileSync(resolve(buildDir, 'headers.conf'), headersConfig);
+        fs.writeFileSync(resolve(buildDir, 'nginx.conf'), mainConfig);
       },
     }),
     new SitemapPlugin(`https://${domain}`, Object.values(routes), { skipgzip: true }),
