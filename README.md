@@ -7,6 +7,10 @@
 </h1>
 
 <p align="center">
+  <a href="https://github.com/bcanseco/full.stack.dev/actions">
+    <img src="https://img.shields.io/github/workflow/status/bcanseco/full.stack.dev/npm?label=CI&style=flat-square">
+  </a>
+
   <a href="https://www.ssllabs.com/ssltest/analyze.html?d=full.stack.dev">
     <img src="https://img.shields.io/badge/Qualys-A%2B-blue.svg?style=flat-square">
   </a>
