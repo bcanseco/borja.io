@@ -2,26 +2,27 @@
  * This script was originally created by juliangarnier.
  * @author Julian Garnier <hello@julian.gr>
  * @see https://codepen.io/juliangarnier/pen/gmOwJX
+ *
+ * It adds a cool fireworks effect when clicking on the screen.
+ * Requires a <canvas> element to be present.
  */
-
-/* eslint-disable */
 
 import anime from 'animejs';
 
-let canvasEl = document.querySelector('canvas');
-let ctx = canvasEl.getContext('2d');
-let numberOfParticules = 30;
+const canvasEl = document.querySelector('canvas');
+const ctx = canvasEl.getContext('2d');
+const numberOfParticules = 30;
 let pointerX = 0;
 let pointerY = 0;
-let tap = ('ontouchstart' in window || navigator.msMaxTouchPoints)
+const tap = ('ontouchstart' in window || navigator.msMaxTouchPoints)
   ? 'touchstart' : 'mousedown';
-let colors = ['#FF1461', '#18FF92', '#5A87FF', '#FBF38C'];
+const colors = ['#FF1461', '#18FF92', '#5A87FF', '#FBF38C'];
 
 function setCanvasSize() {
   canvasEl.width = window.innerWidth * 2;
   canvasEl.height = window.innerHeight * 2;
-  canvasEl.style.width = window.innerWidth + 'px';
-  canvasEl.style.height = window.innerHeight + 'px';
+  canvasEl.style.width = `${window.innerWidth}px`;
+  canvasEl.style.height = `${window.innerHeight}px`;
   canvasEl.getContext('2d').scale(2, 2);
 }
 
@@ -31,9 +32,9 @@ function updateCoords(e) {
 }
 
 function setParticuleDirection(p) {
-  let angle = anime.random(0, 360) * Math.PI / 180;
-  let value = anime.random(50, 180);
-  let radius = [-1, 1][anime.random(0, 1)] * value;
+  const angle = (anime.random(0, 360) * Math.PI) / 180;
+  const value = anime.random(50, 180);
+  const radius = [-1, 1][anime.random(0, 1)] * value;
   return {
     x: p.x + radius * Math.cos(angle),
     y: p.y + radius * Math.sin(angle),
@@ -41,13 +42,13 @@ function setParticuleDirection(p) {
 }
 
 function createParticule(x, y) {
-  let p = {};
+  const p = {};
   p.x = x;
   p.y = y;
   p.color = colors[anime.random(0, colors.length - 1)];
   p.radius = anime.random(16, 32);
   p.endPos = setParticuleDirection(p);
-  p.draw = function() {
+  p.draw = () => {
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
     ctx.fillStyle = p.color;
@@ -57,14 +58,14 @@ function createParticule(x, y) {
 }
 
 function createCircle(x, y) {
-  let p = {};
+  const p = {};
   p.x = x;
   p.y = y;
   p.color = '#999999';
   p.radius = 0.1;
-  p.alpha = .5;
+  p.alpha = 0.5;
   p.lineWidth = 6;
-  p.draw = function() {
+  p.draw = () => {
     ctx.globalAlpha = p.alpha;
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
@@ -77,25 +78,23 @@ function createCircle(x, y) {
 }
 
 function renderParticule(anim) {
-  for (let i = 0; i < anim.animatables.length; i++) {
-    anim.animatables[i].target.draw();
-  }
+  anim.animatables.forEach((animatable) => {
+    animatable.target.draw();
+  });
 }
 
 function animateParticules(x, y) {
-  let circle = createCircle(x, y);
-  let particules = [];
-  for (let i = 0; i < numberOfParticules; i++) {
-    particules.push(createParticule(x, y));
-  }
+  const circle = createCircle(x, y);
+  const particules = Array.from({ length: numberOfParticules }, () => createParticule(x, y));
+
   anime.timeline()
     .add({
       targets: particules,
-      x: function(p) {
+      x(p) {
         return p.endPos.x;
       },
-      y: function(p) {
-      return p.endPos.y;
+      y(p) {
+        return p.endPos.y;
       },
       radius: 0.1,
       duration: anime.random(1200, 1800),
@@ -118,14 +117,14 @@ function animateParticules(x, y) {
     });
 }
 
-let render = anime({
+const render = anime({
   duration: Infinity,
-  update: function() {
+  update() {
     ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
   },
 });
 
-document.addEventListener(tap, function(e) {
+document.addEventListener(tap, (e) => {
   render.play();
   updateCoords(e);
   animateParticules(pointerX, pointerY);
