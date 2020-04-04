@@ -9,7 +9,7 @@ import { GenerateSW as WorkboxPlugin } from 'workbox-webpack-plugin';
 import CspHtmlWebpackPlugin from 'csp-html-webpack-plugin';
 import SitemapPlugin from 'sitemap-webpack-plugin';
 import RobotsTxtPlugin from 'robotstxt-webpack-plugin';
-import * as paths from './src/paths';
+import { routes, redirects } from './src/paths';
 import { name as domain } from './package.json';
 import { configurations as vsCodeDebugConfigs } from './.vscode/launch.json';
 
@@ -90,7 +90,7 @@ export default {
     new HotModuleReplacementPlugin(),
   ] : [
     /* Production-only plugins */
-    ...(Object.values(paths).concat('/404').map((path) => path.slice(1)).map((path) => new HtmlWebpackPlugin({
+    ...(Object.values(routes).concat('/404').map((path) => path.slice(1)).map((path) => new HtmlWebpackPlugin({
       template: `!!prerender-loader?${JSON.stringify({ string: true, documentUrl: `http://localhost/${path}`, params: true })}!${htmlPath}`,
       filename: [path, 'index.html'].filter((piece) => piece).join('/'),
       minify: {
@@ -135,17 +135,27 @@ export default {
       'font-src': 'https://fonts.googleapis.com https://fonts.gstatic.com;',
     }, {
       output: (policy) => {
-        const cspString = fs.readFileSync(resolve(sourceDir, 'templates', 'nginx.conf'), 'utf8')
+        const redirectsString = Object.entries(redirects).map(([path, redirect]) => (
+          `location ~* ^/${path} {
+            return 301 ${redirect};
+          }`
+        )).join('\n');
+
+        const mainConfig = fs.readFileSync(resolve(sourceDir, 'templates', 'nginx', 'main.conf'), 'utf8')
+          .replace('# {{WEBPACK_REDIRECTS}}', redirectsString);
+
+        const headersConfig = fs.readFileSync(resolve(sourceDir, 'templates', 'nginx', 'headers.conf'), 'utf8')
           .replace('# {{WEBPACK_CSP_HEADER}}', `add_header Content-Security-Policy "${policy}" always;`);
 
         if (!fs.existsSync(buildDir)) {
           fs.mkdirSync(buildDir);
         }
 
-        fs.writeFileSync(resolve(buildDir, 'nginx.conf'), cspString);
+        fs.writeFileSync(resolve(buildDir, 'main.conf'), mainConfig);
+        fs.writeFileSync(resolve(buildDir, 'headers.conf'), headersConfig);
       },
     }),
-    new SitemapPlugin(`https://${domain}`, Object.values(paths), { skipgzip: true }),
+    new SitemapPlugin(`https://${domain}`, Object.values(routes), { skipgzip: true }),
     new RobotsTxtPlugin({
       host: `https://${domain}`,
       sitemap: `https://${domain}/sitemap.xml`,
