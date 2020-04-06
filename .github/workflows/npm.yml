@@ -79,5 +79,5 @@ jobs:
       - uses: treosh/lighthouse-ci-action@master
         with:
           urls: https://hi.im.borja.and.im.a.full.stack.dev
-          configPath: .github/lighthouse/config.json
+          configPath: '.github/lighthouse/config.json'
           uploadArtifacts: true
