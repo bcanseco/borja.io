@@ -72,3 +72,12 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         script: sudo service nginx reload
+  lighthouse:
+    needs: [deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: treosh/lighthouse-ci-action@master
+        with:
+          urls: https://hi.im.borja.and.im.a.full.stack.dev
+          configPath: .github/lighthouse/config.json
+          uploadArtifacts: true
