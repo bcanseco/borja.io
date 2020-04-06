@@ -38,7 +38,7 @@ jobs:
     - uses: actions/download-artifact@master
       with:
         name: dist
-    - uses: appleboy/scp-action@master
+    - uses: appleboy/scp-action@v0.0.7
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -47,7 +47,7 @@ jobs:
         source: dist
         target: dist
         strip_components: 1
-    - uses: appleboy/ssh-action@master
+    - uses: appleboy/ssh-action@v0.0.7
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
