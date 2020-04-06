@@ -18,6 +18,10 @@
   <a href="https://github.com/bcanseco/full.stack.dev/actions?query=workflow%3Acommitizen">
     <img src="https://github.com/bcanseco/full.stack.dev/workflows/commitizen/badge.svg">
   </a>
+
+  <a href="https://github.com/bcanseco/full.stack.dev/actions?query=workflow%3Auptime">
+    <img src="https://github.com/bcanseco/full.stack.dev/workflows/uptime/badge.svg">
+  </a>
 </p>
 
 > The most over-engineered personal site on the internet.
