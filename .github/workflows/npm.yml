@@ -68,5 +68,5 @@ jobs:
     needs: [deploy]
     runs-on: ubuntu-latest
     steps:
-    - run: npm install -g observatory-cli
+    - run: sudo npm install -g observatory-cli
     - run: observatory full.stack.dev --min-grade A+
