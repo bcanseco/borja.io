@@ -65,3 +65,10 @@ jobs:
         source: dist
         target: dist
         strip_components: 1
+    - uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: sudo service nginx reload
