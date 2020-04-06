@@ -1,0 +1,13 @@
+name: uptime
+
+on:
+  schedule:
+  - cron: '0 12 * * *' # every day at noon
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: srt32/uptime@master
+      with:
+        url-to-hit: https://full.stack.dev
