@@ -9,37 +9,19 @@ on:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [13.x]
     steps:
     - uses: actions/checkout@master
-    - uses: actions/setup-node@master
-      with:
-        node-version: ${{ matrix.node-version }}
     - run: npm audit --audit-level=moderate
   lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [13.x]
     steps:
     - uses: actions/checkout@master
-    - uses: actions/setup-node@master
-      with:
-        node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run lint
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [13.x]
     steps:
     - uses: actions/checkout@master
-    - uses: actions/setup-node@master
-      with:
-        node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run build
       env:
@@ -85,12 +67,6 @@ jobs:
   observatory:
     needs: [deploy]
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [13.x]
     steps:
-    - uses: actions/setup-node@master
-      with:
-        node-version: ${{ matrix.node-version }}
     - run: npm install -g observatory-cli
     - run: observatory full.stack.dev --min-grade A+
