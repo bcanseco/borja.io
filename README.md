@@ -7,20 +7,16 @@
 </h1>
 
 <p align="center">
-  <a href="https://github.com/bcanseco/full.stack.dev/actions">
-    <img src="https://img.shields.io/github/workflow/status/bcanseco/full.stack.dev/npm?label=CI&style=flat-square">
+  <a href="https://github.com/bcanseco/full.stack.dev/actions?query=workflow%3Anpm">
+    <img src="https://github.com/bcanseco/full.stack.dev/workflows/npm/badge.svg">
   </a>
 
-  <a href="https://www.ssllabs.com/ssltest/analyze.html?d=full.stack.dev">
-    <img src="https://img.shields.io/badge/Qualys-A%2B-blue.svg?style=flat-square">
+  <a href="https://github.com/bcanseco/full.stack.dev/actions?query=workflow%3Amarkdown">
+    <img src="https://github.com/bcanseco/full.stack.dev/workflows/markdown/badge.svg">
   </a>
 
-   <a href="https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=https://hi.im.borja.and.im.a.full.stack.dev">
-    <img src="https://img.shields.io/badge/Lighthouse-100%25-blue.svg?style=flat-square">
-  </a>
-
-  <a href="https://observatory.mozilla.org/analyze/full.stack.dev">
-    <img src="https://img.shields.io/badge/Observatory-A%2B-blue.svg?style=flat-square">
+  <a href="https://github.com/bcanseco/full.stack.dev/actions?query=workflow%3Acommitizen">
+    <img src="https://github.com/bcanseco/full.stack.dev/workflows/commitizen/badge.svg">
   </a>
 </p>
 

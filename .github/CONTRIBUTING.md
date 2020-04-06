@@ -2,7 +2,10 @@
 
 Thanks for considering a contribution to my website! 🙏
 
-The guiding principle behind this project is: **the less code, the better.**
+My main goal is to make sure the site maintains excellent scores across [Lighthouse][lighthouse], [Observatory][observatory], and other tools. Whenever a commit is made on `master` (whether directly or via merged PR), the live site will get updated and then these tools will perform scans automatically.
+
+[lighthouse]: https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=https://hi.im.borja.and.im.a.full.stack.dev
+[observatory]: https://observatory.mozilla.org/analyze/full.stack.dev
 
 ## PR Checklist
 
