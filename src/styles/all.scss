@@ -5,9 +5,55 @@ $padding: 2rem;
 $margin-content: 21%;
 $margin-links: 2px;
 $accent: gainsboro;
+$dark-bg: #181818;
+$theme-color: #008080;
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $dark-bg;
+    color: white;
+  }
+
+  a.button:not(.button-primary) {
+    color: white;
+
+    &:hover {
+      color: grey;
+    }
+
+    &:focus {
+      border-color: $theme-color;
+      color: $theme-color;
+    }
+  }
+
+  code {
+    background-color: #333;
+    border-color: grey;
+  }
+}
+
+a.button.button-primary {
+  background-color: $theme-color;
+  border-color: $theme-color;
+
+  &:hover {
+    background-color: lighten($theme-color, 5%);
+    border-color: lighten($theme-color, 5%);
+  }
+
+  &:focus {
+    background-color: darken($theme-color, 5%);
+    border-color: darken($theme-color, 5%);
+  }
+}
 
 ::selection {
   background-color: $accent;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $theme-color;
+  }
 }
 
 header {
@@ -22,6 +68,10 @@ header {
 .details {
   padding-top: $padding;
   border-top: thin solid $accent;
+
+  @media (prefers-color-scheme: dark) {
+    border-top: thin solid darken($accent, 20%);
+  }
 }
 
 .links {
