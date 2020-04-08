@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import App from './app';
+import { use as injectStylesheet } from './styles/all.scss';
 
 /**
  * The entry point for the app.
@@ -11,14 +12,11 @@ const mount = document.querySelector('div.container');
 
 /**
  * Renders the app on the page.
- * We dynamically import CSS only during rendering because we don't want duplicate
- * CSS added to the DOM during hydration.
+ * We inject CSS only during rendering because we don't want duplicate
+ * CSS added to the DOM during hydration. This is a special `style-loader` option.
  */
 async function render() {
-  await import(
-    /* webpackChunkName: "styles" */
-    './styles/all.scss'
-  );
+  injectStylesheet();
   ReactDOM.render(<App />, mount);
 }
 

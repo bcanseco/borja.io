@@ -44,10 +44,11 @@ export default {
         use: [
           {
             loader: 'style-loader',
+            options: { injectType: 'lazyStyleTag' },
           },
           {
             loader: 'css-loader',
-            options: { importLoaders: 1 },
+            options: { importLoaders: 2 },
           },
           {
             loader: '@fullhuman/purgecss-loader',
@@ -83,7 +84,7 @@ export default {
   plugins: [
     new CleanWebpackPlugin(),
     new NoEmitOnErrorsPlugin(),
-    new PreloadWebpackPlugin({ rel: 'prefetch' }),
+    new PreloadWebpackPlugin({ excludeHtmlNames: ['index.html'] }),
   ].concat(isDevBuild ? [
     /* Development-only plugins */
     new HtmlWebpackPlugin({ template: htmlPath }),
@@ -128,7 +129,6 @@ export default {
       'frame-ancestors': '\'none\'',
       'object-src': '\'none\'',
       'manifest-src': '\'self\'',
-      'prefetch-src': '\'self\'',
       'connect-src': '\'self\'',
       'img-src': '\'self\'',
       'script-src': '\'self\'',
