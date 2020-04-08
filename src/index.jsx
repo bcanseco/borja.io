@@ -15,7 +15,10 @@ const mount = document.querySelector('div.container');
  * CSS added to the DOM during hydration.
  */
 async function render() {
-  await import('./styles/all.scss');
+  await import(
+    /* webpackChunkName: "styles" */
+    './styles/all.scss'
+  );
   ReactDOM.render(<App />, mount);
 }
 

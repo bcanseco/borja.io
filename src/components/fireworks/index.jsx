@@ -2,7 +2,10 @@ import React, { PureComponent } from 'react';
 
 export default class Fireworks extends PureComponent {
   async componentDidMount() {
-    await import('./activate');
+    await import(
+      /* webpackChunkName: "fireworks" */
+      './activate'
+    );
   }
 
   render() {
