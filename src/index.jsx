@@ -47,6 +47,13 @@ export default async function bootstrap(isPrerender) {
         window.addEventListener('load', () => navigator.serviceWorker.register('/service-worker.js'));
       }
     });
+
+    // eslint-disable-next-line no-console
+    console.log(
+      ['%c', '👀', '\n', '%c', 'https://github.com/bcanseco/full.stack.dev', '\n'].join(''),
+      'font-size: 9em',
+      'font-weight: bold',
+    );
   }
 }
 
