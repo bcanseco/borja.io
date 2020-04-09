@@ -135,7 +135,7 @@ export default {
       'style-src': '\'self\' https://fonts.googleapis.com https://fonts.gstatic.com',
       'font-src': 'https://fonts.googleapis.com https://fonts.gstatic.com;',
     }, {
-      output: (policy) => {
+      processFn: (policy) => {
         const redirectsString = Object.entries(redirects).map(([path, redirect]) => (
           `location ~* ^/${path} {
             return 301 ${redirect};
