@@ -22,7 +22,7 @@ const SEO = ({ description, meta, title }) => {
       link={[
         {
           rel: 'canonical',
-          href: `https://hi.im.borja.and.im.a.${domain}`,
+          href: `https://${domain}`,
         },
         {
           rel: 'sitemap',
@@ -66,7 +66,7 @@ const SEO = ({ description, meta, title }) => {
         },
         {
           property: 'og:url', // canonical
-          content: `https://hi.im.borja.and.im.a.${domain}`,
+          content: `https://${domain}`,
         },
         {
           name: 'twitter:card',
