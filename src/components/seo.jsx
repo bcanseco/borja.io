@@ -52,7 +52,7 @@ const SEO = ({ description, meta, title }) => {
           content: 'profile',
         },
         {
-          name: 'og:image',
+          property: 'og:image',
           content: `https://${domain}${headshot}`,
         },
         {
