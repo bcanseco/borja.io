@@ -56,6 +56,10 @@ const SEO = ({ description, meta, title }) => {
           content: `https://${domain}${headshot}`,
         },
         {
+          property: 'og:url',
+          content: `https://${domain}`,
+        },
+        {
           name: 'twitter:card',
           content: 'summary',
         },
