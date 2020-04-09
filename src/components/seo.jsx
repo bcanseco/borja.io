@@ -25,6 +25,11 @@ const SEO = ({ description, meta, title }) => {
           href: `https://hi.im.borja.and.im.a.${domain}`,
         },
         {
+          rel: 'sitemap',
+          type: 'application/xml',
+          href: '/sitemap.xml',
+        },
+        {
           rel: 'icon',
           type: 'image/png',
           href: favicon,
