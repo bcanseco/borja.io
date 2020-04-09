@@ -21,6 +21,10 @@ const SEO = ({ description, meta, title }) => {
       title={fullTitle}
       link={[
         {
+          rel: 'canonical',
+          href: `https://hi.im.borja.and.im.a.${domain}`,
+        },
+        {
           rel: 'icon',
           type: 'image/png',
           href: favicon,
@@ -56,8 +60,8 @@ const SEO = ({ description, meta, title }) => {
           content: `https://${domain}${headshot}`,
         },
         {
-          property: 'og:url',
-          content: `https://${domain}`,
+          property: 'og:url', // canonical
+          content: `https://hi.im.borja.and.im.a.${domain}`,
         },
         {
           name: 'twitter:card',
