@@ -94,7 +94,7 @@ const SEO = ({ description, meta, title }) => {
 };
 
 SEO.defaultProps = {
-  description: 'Borja Canseco is a software engineer based in Austin, TX. He currently works under IBM\'s Watson IoT division. This is his personal website.',
+  description: 'Borja Canseco is a software engineer based in Austin, TX. He currently works under Twilio\'s Developer Experience unit. This is his personal website.',
   meta: [],
 };
 
