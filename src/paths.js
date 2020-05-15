@@ -24,4 +24,5 @@ export const redirects = {
   qm: 'https://github.com/bcanseco/quine-mccluskey',
   extension: 'https://youtu.be/nRyu546AgkU',
   webpack: 'https://github.com/ibm/publish-extension-webpack-plugin',
+  patents: 'https://patents.google.com/?inventor=borja+canseco',
 };
