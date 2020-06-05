@@ -33,7 +33,7 @@ jobs:
     needs: [build, lint, audit]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/download-artifact@master
+    - uses: actions/download-artifact@v1
       with:
         name: dist
     - uses: appleboy/scp-action@v0.0.7
