@@ -3,7 +3,7 @@ import { resolve, join } from 'path';
 import { NoEmitOnErrorsPlugin, HotModuleReplacementPlugin } from 'webpack';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import PwaManifestPlugin from 'webpack-pwa-manifest';
+import PwaManifestPlugin from 'webpack-pwa-manifest-contrib';
 import PreloadWebpackPlugin from 'preload-webpack-plugin';
 import { GenerateSW as WorkboxPlugin } from 'workbox-webpack-plugin';
 import CspHtmlWebpackPlugin from 'csp-html-webpack-plugin';
