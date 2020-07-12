@@ -1,0 +1,26 @@
+name: codeql
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  schedule:
+    - cron: '0 7 * * 0' # every sunday at 7
+
+jobs:
+  codeql:
+    runs-on: ubuntu-latest
+    steps:
+      uses: actions/checkout@master
+      with:
+        # We must fetch at least the immediate parents so that if this is
+        # a pull request then we can checkout the head.
+        fetch-depth: 2
+    # If this run was triggered by a pull request event, then checkout
+    # the head of the pull request instead of the merge commit.
+    - run: git checkout HEAD^2
+      if: ${{ github.event_name == 'pull_request' }}
+    # Initializes the CodeQL tools for scanning.
+    - uses: github/codeql-action/init@main
+    - uses: github/codeql-action/analyze@main
