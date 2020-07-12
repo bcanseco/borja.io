@@ -24,7 +24,7 @@
   </a>
 </p>
 
-> The most over-engineered personal site on the internet.
+> A React-powered personal site that gets statically generated as a blazing fast™ PWA. All with a single webpack config file.
 
 ## Getting started ☕
 
