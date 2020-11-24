@@ -8,7 +8,7 @@ const IndexPage = () => (
     <SEO title="Software Engineer" />
     <Details>
       {`
-        Hello! I'm a software engineer in Austin, TX.
+        Hello! I'm a software engineer in Denver, CO.
         It looks like you stumbled across my personal website.
         Someday I'll find the time to actually put something interesting on here.
         In the meantime, feel free to check out the links below.
