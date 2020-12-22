@@ -2,7 +2,7 @@
 @import '~skeleton-css/css/skeleton.css';
 
 $padding: 2rem;
-$margin-content: 21%;
+$padding-content: 21%;
 $margin-links: 2px;
 $accent: gainsboro;
 $dark-bg: #181818;
@@ -33,6 +33,10 @@ $theme-color: #008080;
   }
 }
 
+body {
+  height: 100vh;
+}
+
 a.button.button-primary {
   background-color: $theme-color;
   border-color: $theme-color;
@@ -57,7 +61,7 @@ a.button.button-primary {
 }
 
 header {
-  margin-top: $margin-content;
+  padding-top: $padding-content;
   text-align: center;
 
   h1 {
@@ -76,7 +80,7 @@ header {
 
 .links {
   padding-top: $padding;
-  margin-bottom: $margin-content;
+  padding-bottom: $padding-content;
   text-align: center;
 
   a:first-of-type {
@@ -99,4 +103,135 @@ canvas {
   z-index: -10;
   height: 100vh;
   width: 100vw;
+}
+
+video {
+  display: none;
+}
+
+body.miami {
+  $neon-pink-primary: #ff6fd1;
+  $neon-pink-secondary: #f59bca;
+  $neon-green-primary: #6EFCBB;
+  $neon-green-secondary: #4AB18E;
+
+  @mixin floating {
+    animation-name: floating;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+  
+  @keyframes floating {
+    from {
+      transform: translate(0, 0px);
+    }
+    50% {
+      transform: translate(0, 30px);
+    }
+    to {
+      transform: translate(0, -0px);
+    }
+  }
+  
+  @mixin rotating {
+    animation-name: rotating;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+  
+  @keyframes rotating {
+    from {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+    to {
+      transform: rotate(-3deg);
+    }
+  }
+
+  @mixin funky-text {
+    animation-name: funky-text;
+    animation-duration: 7.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes funky-text {
+    from { color: white; letter-spacing: normal; }
+    33% { color: $neon-pink-secondary; }
+    50% { letter-spacing: 1px; }
+    66% { color: $neon-green-primary; }
+    to { color: white; letter-spacing: normal; }
+  }
+
+  background: linear-gradient($neon-pink-primary, $neon-pink-secondary);
+
+  > div > :not(video) {
+    @include floating;
+
+    > * {
+      @include rotating;
+    }
+  }
+
+  h1 {
+    font-size: 72px;
+    letter-spacing: 1rem;
+    color: $neon-green-primary;
+    font-weight: bold;
+    font-family: serif;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 0px $neon-green-secondary;
+  }
+
+  .details {
+    text-shadow: 2px 2px 2px black;
+
+    @media (prefers-color-scheme: light) {
+      font-weight: bold;
+      color: white;
+    }
+
+    &:after {
+      @include funky-text;
+      content: 'You\'ve entered the vaporwave zone. Kick back and relax, my friend.';
+    }
+  }
+
+  a.button {
+    color: black;
+    font-family: serif;
+    background-color: $neon-green-primary;
+    background-image:
+      linear-gradient(45deg, $neon-pink-primary 25%, transparent 25%),
+      linear-gradient(-45deg, $neon-pink-primary 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, $neon-pink-primary 75%),
+      linear-gradient(-45deg, transparent 75%, $neon-pink-primary 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+
+    &:first-of-type {
+      margin-right: $margin-links * 3;
+    }
+  
+    &:last-of-type {
+      margin-left: $margin-links * 3;
+    }
+  }
+
+  video {
+    @include rotating;
+
+    display: inline-block;
+    z-index: -1;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
 }

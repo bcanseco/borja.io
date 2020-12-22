@@ -64,7 +64,7 @@ export default {
         ],
       },
       {
-        test: /\.(ico|jpe?g|png|gif|svg|eot|ttf|otf|woff2?)$/,
+        test: /\.(ico|jpe?g|png|gif|svg|mp3|mp4|eot|ttf|otf|woff2?)$/,
         use: 'file-loader',
       },
     ],
