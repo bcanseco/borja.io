@@ -130,6 +130,7 @@ export default {
       'object-src': '\'none\'',
       'manifest-src': '\'self\'',
       'connect-src': '\'self\'',
+      'media-src': '\'self\'',
       'img-src': '\'self\'',
       'script-src': '\'self\'',
       'style-src': '\'self\' https://fonts.googleapis.com https://fonts.gstatic.com',
