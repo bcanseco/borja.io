@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: treosh/lighthouse-ci-action@master
+      - uses: treosh/lighthouse-ci-action@main
         with:
           urls: https://hi.im.borja.and.im.a.full.stack.dev
           configPath: .github/lighthouse/config.json
