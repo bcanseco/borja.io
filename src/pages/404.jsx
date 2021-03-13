@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Layout, SEO, Details, Links, Link, Fireworks,
+  Layout, SEO, Details, Links, Link,
 } from '../components';
 
 const NotFoundPage = () => (
@@ -17,7 +17,6 @@ const NotFoundPage = () => (
     <Links>
       <Link primary to="/" title="Homepage">Home</Link>
     </Links>
-    <Fireworks />
   </Layout>
 );
 
