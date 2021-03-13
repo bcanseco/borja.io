@@ -37,3 +37,7 @@ The canonical URL I prefer is `hi.im.borja.and.im.a.full.stack.dev`, but I point
 * [`*.hi.im.borja.and.im.a.full.stack.dev`](https://www.hi.im.borja.and.im.a.full.stack.dev)
 
 Note that the `.dev` gTLD is HTTPS-only.
+
+## Why is the minimum Lighthouse score 0.93 instead of 0.95 for Best Practices?
+
+Lighthouse is currently complaining about something in the Issues tab, despite nothing there.
