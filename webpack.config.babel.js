@@ -117,6 +117,7 @@ export default {
           src: resolve(sourceDir, 'images', 'bc.png'),
           sizes: [96, 128, 192, 256, 384, 512],
           ios: true,
+          purpose: 'any maskable',
         },
       ],
       ios: true,
