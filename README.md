@@ -3,24 +3,24 @@
 </p>
 
 <h1 align="center">
-  <a href="https://full.stack.dev">full.stack.dev</a>
+  <a href="https://borja.io">borja.io</a>
 </h1>
 
 <p align="center">
-  <a href="https://github.com/bcanseco/full.stack.dev/actions?query=workflow%3Anpm">
-    <img src="https://github.com/bcanseco/full.stack.dev/workflows/npm/badge.svg">
+  <a href="https://github.com/bcanseco/borja.io/actions?query=workflow%3Anpm">
+    <img src="https://github.com/bcanseco/borja.io/workflows/npm/badge.svg">
   </a>
 
-  <a href="https://github.com/bcanseco/full.stack.dev/actions?query=workflow%3Amarkdown">
-    <img src="https://github.com/bcanseco/full.stack.dev/workflows/markdown/badge.svg">
+  <a href="https://github.com/bcanseco/borja.io/actions?query=workflow%3Amarkdown">
+    <img src="https://github.com/bcanseco/borja.io/workflows/markdown/badge.svg">
   </a>
 
-  <a href="https://github.com/bcanseco/full.stack.dev/actions?query=workflow%3Acommitizen">
-    <img src="https://github.com/bcanseco/full.stack.dev/workflows/commitizen/badge.svg">
+  <a href="https://github.com/bcanseco/borja.io/actions?query=workflow%3Acommitizen">
+    <img src="https://github.com/bcanseco/borja.io/workflows/commitizen/badge.svg">
   </a>
 
-  <a href="https://github.com/bcanseco/full.stack.dev/actions?query=workflow%3Auptime">
-    <img src="https://github.com/bcanseco/full.stack.dev/workflows/uptime/badge.svg">
+  <a href="https://github.com/bcanseco/borja.io/actions?query=workflow%3Auptime">
+    <img src="https://github.com/bcanseco/borja.io/workflows/uptime/badge.svg">
   </a>
 </p>
 

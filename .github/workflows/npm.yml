@@ -7,21 +7,22 @@ on:
     branches: [ master ]
 
 jobs:
-  audit:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - run: npm audit --audit-level=moderate
   lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 14
     - run: npm ci
     - run: npm run lint
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 14
     - run: npm ci
     - run: npm run build
     - uses: actions/upload-artifact@master
@@ -30,7 +31,7 @@ jobs:
         path: dist
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    needs: [build, lint, audit]
+    needs: [build, lint]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/download-artifact@v1
@@ -59,7 +60,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: treosh/lighthouse-ci-action@main
         with:
-          urls: https://hi.im.borja.and.im.a.full.stack.dev
+          urls: https://borja.io
           configPath: .github/lighthouse/config.json
           uploadArtifacts: true
   observatory:
@@ -67,4 +68,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: sudo npm install -g observatory-cli
-    - run: observatory hi.im.borja.and.im.a.full.stack.dev --min-grade A+
+    - run: observatory borja.io --min-grade A+

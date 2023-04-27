@@ -1,5 +1,5 @@
 {
-  "name": "hi.im.borja.and.im.a.full.stack.dev",
+  "name": "borja.io",
   "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server",
